@@ -6,10 +6,10 @@ const {chromium, firefox, webkit} = require('playwright');
   const PASSWORD = "your_password";
 
   const browser = await chromium.launch({
-    headless:false
+    headless: false
   });
   const context = await browser.newContext({
-    viewport:{width: 1000, height: 1000}
+    viewport: {width: 1000, height: 1000}
   });
   const page = await context.newPage('https://stackoverflow.com/users/login');
   await page.waitFor('#email');
@@ -21,7 +21,12 @@ const {chromium, firefox, webkit} = require('playwright');
 
   const submit = await page.$('#submit-button');
   await submit.click({
-    button:"left"
+    button: "left"
   });
+
+  await page.waitFor('.my-profile');
+  const myprofile = await page.$('.my-profile');
+  await myprofile.click();
+
   await browser.close();
 })();
