@@ -26,6 +26,10 @@ functions:
   stackoverflowDailyVisitsPlayWright:
     handler: handler.main
     module: playwright
+    exclude:
+      - node_modules/playwright-core/.local-chromium/**
+      - node_modules/playwright-core/.local-firefox/**
+      - node_modules/playwright-core/.local-webkit/**
     events:
       - schedule: rate(12 hours)
 
