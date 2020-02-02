@@ -20,7 +20,12 @@ provider:
   region: eu-central-1
 
 functions:
-  stackoverflowDailyVisits:
-    handler: handler.main
+  stackoverflowDailyVisitsPlayWright:
+    handler: playwright/handler.main
     events:
-      - schedule: rate(10 minutes)
+      - schedule: rate(12 hours)
+
+  stackoverflowDailyVisitsPuppeteer:
+    handler: puppeteer/handler.main
+    events:
+      - schedule: rate(12 hours)
