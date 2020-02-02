@@ -2,7 +2,6 @@ const {getChrome} = require('./chrome-script')
 
 module.exports.hello = async event => {
   const chrome = await getChrome();
-
   const browser = await puppeteer.connect({
     browserWSEndpoint: chrome.endpoint
   });

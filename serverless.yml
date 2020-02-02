@@ -23,19 +23,17 @@ plugins:
   - serverless-plugin-chrome
 
 functions:
-  stackoverflowDailyVisitsPlayWright:
-    handler: handler.main
-    module: playwright
-    exclude:
-      - node_modules/playwright-core/.local-chromium/**
-      - node_modules/playwright-core/.local-firefox/**
-      - node_modules/playwright-core/.local-webkit/**
-    events:
-      - schedule: rate(12 hours)
+#  stackoverflowDailyVisitsPlayWright:
+#    handler: playwirght_handler.main
+#    exclude:
+#      - node_modules/playwright-core/.local-chromium/**
+#      - node_modules/playwright-core/.local-firefox/**
+#      - node_modules/playwright-core/.local-webkit/**
+#    events:
+#      - schedule: rate(12 hours)
 
   stackoverflowDailyVisitsPuppeteer:
     handler: handler.main
-    module: puppeteer
     exclude:
       - node_modules/puppeteer/.local-chromium/**
     events:
