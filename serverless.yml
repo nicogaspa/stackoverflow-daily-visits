@@ -19,13 +19,20 @@ provider:
   stage: production
   region: eu-central-1
 
+plugins:
+  - serverless-plugin-chrome
+
 functions:
   stackoverflowDailyVisitsPlayWright:
-    handler: playwright/handler.main
+    handler: handler.main
+    module: playwright
     events:
       - schedule: rate(12 hours)
 
   stackoverflowDailyVisitsPuppeteer:
-    handler: puppeteer/handler.main
+    handler: handler.main
+    module: puppeteer
+    exclude:
+      - node_modules/puppeteer/.local-chromium/**
     events:
       - schedule: rate(12 hours)
