@@ -1,0 +1,11 @@
+{
+  "name": "stackoverflow-daily-visits",
+  "version": "1.0.0",
+  "main": "handler.js",
+  "author": "nicogaspa",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "playwright": "^0.10.0",
+  }
+}
