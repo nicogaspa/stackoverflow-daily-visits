@@ -5,9 +5,13 @@ const {chromium} = require('playwright');
   const USERNAME = "your_username";
   const PASSWORD = "your_password";
 
-  const browser = await chromium.launch({
-    headless: true
-  });
+  try {
+    const browser = await chromium.launch({
+      headless: true
+    });
+  } catch (e) {
+    console.log("Init exception" + e)
+  }
   const context = await browser.newContext({
     viewport: {width: 1000, height: 1000}
   });
