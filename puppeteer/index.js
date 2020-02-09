@@ -1,20 +1,21 @@
-const {getChrome} = require('./chrome-script')
+const puppeteer = require('puppeteer');
 
-module.exports.hello = async event => {
-  const chrome = await getChrome();
-  const browser = await puppeteer.connect({
-    browserWSEndpoint: chrome.endpoint
-  });
+(async () => {
+  const USERNAME = "your_username";
+  const PASSWORD = "your_password";
 
+  const browser = await puppeteer.launch({headless: false})
   const page = await browser.newPage();
   await page.goto('https://stackoverflow.com/users/login', {waitUntil: 'networkidle2'});
-
-  //TODO
+  await page.type('#email', USERNAME)
+  await page.type('#password', PASSWORD)
+  await page.click('#submit-button')
+  await page.waitForNavigation()
+  browser.close()
 
   let datetime = new Date();
   return {
     statusCode: 200,
     body: JSON.stringify(`Done for ${datetime}`),
   };
-
-};
+})();
