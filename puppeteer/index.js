@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer');
   const PASSWORD = "your_password";
 
   try {
-    const browser = await puppeteer.launch({headless: false})
+    const browser = await puppeteer.launch({headless: true})
     const page = await browser.newPage();
     await page.goto('https://stackoverflow.com/users/login', {waitUntil: 'networkidle2'});
     await page.type('#email', USERNAME)

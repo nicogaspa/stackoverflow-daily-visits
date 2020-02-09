@@ -6,7 +6,7 @@ const {chromium} = require('playwright');
   const PASSWORD = "your_password";
 
   try {
-    const browser = await chromium.launch({headless: false});
+    const browser = await chromium.launch({headless: true});
     const context = await browser.newContext({
       viewport: {width: 1000, height: 1000}
     });
