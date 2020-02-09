@@ -20,8 +20,5 @@ const puppeteer = require('puppeteer');
   }
 
   let datetime = new Date();
-  return {
-    statusCode: 200,
-    body: JSON.stringify(`Done for ${datetime}`),
-  };
+  console.log(`Done for ${datetime}`)
 })();

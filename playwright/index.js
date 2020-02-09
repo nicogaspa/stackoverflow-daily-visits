@@ -28,4 +28,7 @@ const {chromium} = require('playwright');
   } catch (e) {
     console.log("Init exception" + e)
   }
+
+  let datetime = new Date();
+  console.log(`Done for ${datetime}`)
 })();
